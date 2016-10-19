@@ -1,4 +1,5 @@
-function validate(){
+function validate()
+{
   //Grab the user's input and store in variables
   var userEntered = document.getElementById("user").value;
   var passEntered = document.getElementById("pass").value;
@@ -13,6 +14,7 @@ function validate(){
     document.getElementById("usernameError").classList.remove("hidden-message");
     document.getElementById("usernameError").classList.add("shown-message");
     document.getElementById("usernameGroup").classList.add("has-error");
+    document.getElementById("usernameGroup").classList.remove("has-success");//updated
   }
   if(userEntered.indexOf(' ') > 0)
   {
@@ -20,10 +22,12 @@ function validate(){
     document.getElementById("usernameError").classList.remove("hidden-message");
     document.getElementById("usernameError").classList.add("shown-message");
     document.getElementById("usernameGroup").classList.add("has-error");
+    document.getElementById("usernameGroup").classList.remove("has-success");//updated
   }
   else
   {
     document.getElementById("usernameGroup").classList.add("has-success");
+    document.getElementById("usernameGroup").classList.remove("has-error");//updated
   }
 
   //Password test conditions
@@ -32,14 +36,16 @@ function validate(){
     document.getElementById("passwordError").innerHTML="Password cannot be 'password'.";
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
-    document.getElementById("passwordGroup").classList.add("has-error");  
+    document.getElementById("passwordGroup").classList.add("has-error");
+    document.getElementById("usernameGroup").classList.remove("has-success");//updated  
   }
   if(passEntered == userEntered)
   {
     document.getElementById("passwordError").innerHTML="Password cannot match username.";
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
-    document.getElementById("passwordGroup").classList.add("has-error"); 
+    document.getElementById("passwordGroup").classList.add("has-error");
+    document.getElementById("usernameGroup").classList.remove("has-success");//updated
   }
   if(passLength < 6 || passLength > 20)
   {
@@ -47,9 +53,18 @@ function validate(){
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     document.getElementById("passwordGroup").classList.add("has-error");
+    document.getElementById("usernameGroup").classList.remove("has-success");//updated
   }
   else
   {
     document.getElementById("passwordGroup").classList.add("has-success");
+    document.getElementById("usernameGroup").classList.remove("has-error");//updated
   }
+}
+
+function display()
+{
+  var userEntered = document.getElementById("user").value;
+  var passEntered = document.getElementById("pass").value;
+  alert("Username is: " + userEntered + " Password is: " + passEntered);
 }
